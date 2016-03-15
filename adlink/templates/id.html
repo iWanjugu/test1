@@ -1,0 +1,44 @@
+
+
+{% extends 'base.html'%}
+
+{% block content%}
+
+
+
+
+
+
+
+
+
+
+<table style="width:100%">
+  <tr>
+    <th>Title</th>
+    <th>Description</th>		
+    <th>Location</th>
+     <th>Paid By</th>
+      <th>Expires on</th>
+       <th>Posted By</th>
+  </tr>
+
+
+
+  <tr>
+    <td>{{a.title}}</td>
+    <td>{{a.description}}</td>		
+    <td>{{a.location}}</td>
+    <td>{{a.paid_by}}</td>
+    <td>{{a.expiry_date}}</td>
+    <td>{{a.posted_by}}</td>
+    <td><a href='/updateanAd/{{a.id}}'>Edit Ad</a><br/></td>
+  
+  </tr>
+
+
+</table>
+
+
+
+{%endblock%}

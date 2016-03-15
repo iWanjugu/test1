@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+
+{% load bootstrap3 %}
+
+
+{% block content%}
+
+<form id="user_form" method="post" action="/ClerkAd/"  enctype="multipart/form-data">
+            {% csrf_token %}
+            <!-- {{ ads_form.as_p }} -->
+            {% bootstrap_form ads_form  %}
+            <input type="submit" name="submit" value="Save" />
+        </form>
+
+{%endblock%}

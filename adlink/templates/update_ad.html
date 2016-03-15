@@ -1,0 +1,28 @@
+{% extends 'base.html'%}
+
+{% block content%}
+
+
+{% if user.is_authenticated %}
+Update Ad
+
+<form id="user_form" method="post" action="/update_ad/"
+                enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+           
+            {{ update_ad_form.as_p }}
+     
+
+        
+            <input type="submit" name="submit" value="Register" />
+        </form>
+
+        {% else %}
+        <p>You must be logged in to perform this tasks</p>
+ 
+        {% endif %}
+        {%endblock%}
+</body>
+</html>

@@ -1,0 +1,44 @@
+{% extends 'base.html'%}
+
+{% block content%}
+
+
+{% if user.is_authenticated %}
+REGISTER A CUSTOMER
+<form id="user_form" method="post" action="/register/" enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+           
+            {{ user_form.as_p }}
+            {{ profile_form.as_p }}
+
+        
+            <input type="submit" name="submit" value="Register" />
+        </form>
+
+
+
+
+
+
+        {% else %}
+        <p>You must be logged in to perform this tasks</p>
+<form id="user_form" method="post" action="/register/" enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+           
+            {{ user_form.as_p }}
+            {{ profile_form.as_p }}
+
+        
+            <input type="submit" name="submit" value="Register" />
+        </form>
+
+
+
+        {% endif %}
+        {%endblock%}
+</body>
+</html>

@@ -1,0 +1,46 @@
+
+
+{% extends 'base.html'%}
+
+{% block content%}
+
+
+
+
+
+
+
+
+
+
+<table style="width:100%">
+  <tr>
+    <th>Title</th>
+    <th>Description</th>		
+    <th>Location</th>
+     <th>Paid By</th>
+      <th>Expires on</th>
+       <th>Posted By</th>
+  </tr>
+
+{%if Ads%}
+{%for a in Ads%}
+
+  <tr>
+    <td>{{a.title}}</td>
+    <td>{{a.description}}</td>		
+    <td>{{a.location}}</td>
+    <td>{{a.paidby}}</td>
+    <td>{{a.expiry_date}}</td>
+    <td>{{a.posted_by}}</td>
+    <td><a href='/get/{{a.id}}'>View More</a><br/></td>
+  
+  </tr>
+ {%endfor%}
+{%endif%}
+
+</table>
+
+
+
+{%endblock%}

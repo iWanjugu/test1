@@ -1,0 +1,100 @@
+
+{% extends 'base.html'%}
+{% load staticfiles %}
+
+{% block content%}
+
+
+
+
+
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+{% if user.is_authenticated %}
+<div class="container">
+<div class="row">
+<h1> Welcome {{ user.username }}!</h1>
+
+
+
+<a href="/register/">Add A new User</a><br />
+<a href="/ClerkAd/">Add A Ad</a><br />
+<a href="/ads/">View Ads</a><br />
+<a href="/logout/">Logout</a><br />
+<p>SEARCH A USER </p>
+<form method="get" action="/search/">
+<p><label for="id_q">Search:</label>
+<input type="text" name="q" id="id_q" />
+<input type="submit" value="Submit" /></p>
+</form>
+</div>
+</div>
+{% else %}
+
+<!-- <form id="login_form" method="POST" action="/login/">
+            {% csrf_token %}
+            Username: <input type="text" name="username" value="" size="50" />
+            <br />
+            Password: <input type="password" name="password" value="" size="50" />
+            <br />
+
+            <input type="submit" value="submit" />
+        </form> -->
+
+        <body class=" login">
+            <!-- BEGIN LOGO -->
+            <div class="logo">
+                <a href="index.html">
+                    <img src="{% static 'assets/pages/img/adlink-logo.png' %}" alt="" /> </a>
+            </div>
+            <!-- END LOGO -->
+            <!-- BEGIN LOGIN -->
+            <div class="content">
+                <!-- BEGIN LOGIN FORM -->
+                <form id="login_form" method="POST" action="/login/" class="login-form" >
+                  {% csrf_token %}
+                    <h3 class="form-title font-green">Log In</h3>
+                    <div class="alert alert-danger display-hide">
+                        <button class="close" data-close="alert"></button>
+                        <span> Enter any username and password. </span>
+                    </div>
+                    <div class="form-group">
+                        <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                        <label class="control-label visible-ie8 visible-ie9">Username</label>
+                        <input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" placeholder="Username" name="username" value="" size="50"/> </div>
+                    <div class="form-group">
+                        <label class="control-label visible-ie8 visible-ie9">Password</label>
+                        <input class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="password" value="" size="50"/> </div>
+                    <div class="form-actions">
+                        <input type="submit" class="btn green uppercase" value="login" />
+                        <!-- <label class="rememberme check">
+                            <input type="checkbox" name="remember" value="1" />Remember </label> -->
+                        <a href="javascript:;" id="forget-password" class="forget-password">Forgot Password?</a>
+                    </div>
+                    <div class="create-account">
+                        <p>
+                            <a href="javascript:;" id="register-btn" class="uppercase">Create an account</a>
+                        </p>
+                    </div>
+                </form>
+                <!-- END LOGIN FORM -->
+            </div>
+            <div class="copyright"> 2016 © Adlink. Admin Dashboard. </div>
+
+
+
+{% endif %}
+
+
+
+{%endblock%}
+
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>Search</title>
+</head>
+<body>
+
+
+<p>You searched for "{{ query }}"; the results are listed below.</p>
+<ul>
+
+<li>{{ r.company }}</li>
+<li>{{ r.firstname }}</li>
+<li>{{ r.lastname }}</li>
+<li>{{ r.phone }}</li>
+
+</ul>
+</body>
+</html>
+
+
+<!--
+firstname = admin.objects.filter(firstname=query)
+	phone = admin.objects.filter(phone=query)
+	company = admin.objects.filter(company=query)
+	template = loader.get_template('search.html')
+	context = Context({'query': query, 'firstname':firstname, 'phone':phone, 'company':company})-->
